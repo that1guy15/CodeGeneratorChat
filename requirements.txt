@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pyautogen
+docker
+black
+jinja2
