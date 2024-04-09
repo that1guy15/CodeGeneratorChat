@@ -1,5 +1,5 @@
 # Code Generator Chat
-![prompt: a team of futuristic AI agents working together to build an abstract product](CodeGeneratorChat.png?raw=true "Title")
+![prompt: a team of futuristic AI agents working together to build an abstract product](./CodeGeneratorTeam.png?raw=true "Title")
 
 ## Overview
 Code Generator Chat is an instruction-lead AI chat assistant designed to write code of 
@@ -15,6 +15,8 @@ to each other so that the final output is both validated to work but also meets 
 requirements given.
 
 ## Agents and Their Roles
+[Agent workflow](./CodeGeneratorTeam.png?raw=true "Title")
+
 The core agents include:
 
 ### Manager
@@ -37,7 +39,6 @@ Following the Planner, the Programmer translates the strategic blueprint into ac
 code. This phase is critical and hinges entirely on the framework laid out by the Planner.
 
 [Programmer Prompt](src/agents/prompts/programmer.jinja)
-
 
 ### Optimizer
 The final step in the sequence involves the Optimizer, who reviews and refines the 
