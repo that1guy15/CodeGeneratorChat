@@ -1,5 +1,5 @@
 # Code Generator Chat
-![prompt: a team of futuristic AI agents working together to build an abstract product](./CodeGeneratorTeam.png?raw=true "Title")
+![logo](https://raw.githubusercontent.com/that1guy15/CodeGeneratorChat/main/.github/CodeGeneratorTeam.png)
 
 ## Overview
 Code Generator Chat is an instruction-lead AI chat assistant designed to write code of 
