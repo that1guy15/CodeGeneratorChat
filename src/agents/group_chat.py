@@ -2,7 +2,6 @@ import asyncio
 from autogen import (
     AssistantAgent,
     GroupChat,
-    GroupChatManager,
 )
 from agents.user_proxy_webagent import UserProxyWebAgent
 from agents.groupchatweb import GroupChatManagerWeb
@@ -46,7 +45,7 @@ class AutogenCodeGenGroupChat:
             name="programmer",
             description="This is the Programmer agent that never goes first. "
                         "This agent writes clean and efficient code, "
-                        "and sends it to the Organizer",
+                        "and sends it to the Optimizer for testing and review",
             system_message=render_template("programmer.jinja"),
             human_input_mode="NEVER",
             max_consecutive_auto_reply=4,
@@ -105,8 +104,8 @@ class AutogenCodeGenGroupChat:
             },
         )
 
-
     async def start(self, message: str):
         await self.user_proxy.a_initiate_chat(
             self.manager, message=message
         )
+        self.user_proxy.return_chat_messages()

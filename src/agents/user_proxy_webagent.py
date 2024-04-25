@@ -1,4 +1,4 @@
-from autogen import Agent, ConversableAgent, UserProxyAgent
+from autogen import Agent, ConversableAgent, UserProxyAgent, AssistantAgent
 from typing import Any, Dict, List, Optional, Tuple, Union
 try:
     from termcolor import colored

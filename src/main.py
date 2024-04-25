@@ -70,8 +70,11 @@ async def receive_from_client(autogen_chat: AutogenCodeGenGroupChat):
 @app.websocket("/ws/{chat_id}")
 async def websocket_endpoint(websocket: WebSocket, chat_id: str):
     try:
+        # setup chat and websocket connections
         autogen_chat = AutogenCodeGenGroupChat(chat_id=chat_id, websocket=websocket)
         await manager.connect(autogen_chat)
+
+        # wait for client to send a message then send to chat
         data = await autogen_chat.websocket.receive_text()
         future_calls = asyncio.gather(
             send_to_client(autogen_chat), receive_from_client(autogen_chat)
