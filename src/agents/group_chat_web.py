@@ -1,6 +1,6 @@
 import sys
 from typing import Dict, List, Optional, Union
-from autogen import Agent, ConversableAgent, GroupChat
+from autogen import Agent, ConversableAgent, GroupChat, AssistantAgent
 from autogen import ConversableAgent
 
 
@@ -14,7 +14,6 @@ class GroupChatManagerWeb(ConversableAgent):
         max_consecutive_auto_reply: Optional[int] = 20,
         human_input_mode: Optional[str] = "NEVER",
         system_message: Optional[str] = "Group chat manager.",
-        # seed: Optional[int] = 4,
         **kwargs,
     ):
         super().__init__(
@@ -24,8 +23,14 @@ class GroupChatManagerWeb(ConversableAgent):
             system_message=system_message,
             **kwargs,
         )
-        self.register_reply(Agent, GroupChatManagerWeb.run_chat, config=groupchat, reset_config=GroupChat.reset)
-        # self._random = random.Random(seed)
+        self.register_reply(
+            Agent,
+            GroupChatManagerWeb.run_chat,
+            config=groupchat,
+            reset_config=GroupChat.reset,
+        )
+
+
 
     async def run_chat(
         self,
