@@ -2,7 +2,6 @@
 *.sqlite
 .venv/
 .cache/
-output/
 ai_agent/files/
 *.pem
 node_modules
