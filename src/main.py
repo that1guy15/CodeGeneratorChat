@@ -80,14 +80,14 @@ async def websocket_endpoint(websocket: WebSocket, chat_id: str):
             send_to_client(group_chat), receive_from_client(group_chat)
         )
         await group_chat.start(data)
-        print(f"PROGRAMMER MESSAGES: \n{group_chat.get_chat_messages(group_chat.programmer, group_chat.manager)}")
+        planner_mgs = group_chat.planner.chat_messages
+        group_chat.client_receive_queue.put_nowait(planner_mgs)
+        print(f"PLANNER MESSAGES: {planner_mgs}")
         print("DO_FINISHED")
     except Exception as e:
         print("ERROR", str(e))
     finally:
         try:
             await manager.disconnect(group_chat)
-
-            print("DISCONNECTED")
         except:
             pass

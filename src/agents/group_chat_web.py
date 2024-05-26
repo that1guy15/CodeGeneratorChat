@@ -74,6 +74,8 @@ class GroupChatManagerWeb(ConversableAgent):
                 break
             # The speaker sends the message without requesting a reply
             speaker.send(reply, self, request_reply=False)
+
             message = self.last_message(speaker)
+
         return True, None
 
